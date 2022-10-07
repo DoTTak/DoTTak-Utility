@@ -1,0 +1,3 @@
+export proxy_on(){ echo "Proxy ON >> Host:"$1 "Port:"$2;networksetup -setwebproxy wi-fi $1 $2;networksetup -setsecurewebproxy wi-fi $1 $2;networksetup -setwebproxystate wi-fi on;networksetup -setsecurewebproxystate wi-fi on;proxy_status }
+export proxy_off(){ echo "Proxy Off";networksetup -setwebproxystate wi-fi off;networksetup -setsecurewebproxystate wi-fi off; }
+export proxy_status(){ echo "[HTTPS]\n"$(networksetup -getsecurewebproxy wi-fi)"\n[HTTP]";echo $(networksetup -getwebproxy wi-fi) }
